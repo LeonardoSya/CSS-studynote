@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    1.
+    为了减少服务器接收和发送请求的次数, 提高页面的加载速度, 出现了CSS精灵图/CSS Sprites
+    原理: 将网页中一些小背景图像整合到一张大图中, 这样服务器只需要一次请求就可以了
+
+    把多个小背景图片整合到一张大图中
+    移动背景图片位置 此时可以用background-position
+    移动的距离就是图片的x y坐标 注意网页中的坐标有所不同
+    因为一般情况下都是往上往左移动 所以数值是负值
+
+
+    2.
+    字体图标iconfont
+    使用场景: 用于显示网页中通用、常用的一些小图标 展示的是图标 本质属于字体
+
+
+    结构样式比较简单的小图标 字体图标iconfont
+    结构样式复杂一点的小图标 精灵图
+
+
+    3.
+    cSS三角写法
+    更改border和border-left的px值实现三角大小和尖度的改变
+
+
+    4.
+    带三角的盒子写法
+    子绝父相, top值 = border和border-bottom的px的总和的负数
+
+    
+    <style>
+        .box1 {
+            width: 60px;
+            height: 60px;
+            margin: 100px auto;
+            background: url(/综合案例1——学成在线网站/img/course3.png) no-repeat -12px 0;
+            /* background-color: pink; */
+        }
+
+
+        /* 字体声明 */
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?yt9gm5');
+            src: url('fonts/icomoon.eot?yt9gm5#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?yt9gm5') format('truetype'),
+                url('fonts/icomoon.woff?yt9gm5') format('woff'),
+                url('fonts/icomoon.svg?yt9gm5#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        span {
+            font-family: 'icomoon';
+            font-size: 100px;
+        }
+
+
+        /* 三角写法 */
+        .box2 {
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 100px solid transparent;
+            border-left: 130px solid #000;
+        }
+
+
+
+        /* 三角盒子 */
+        .box3 {
+            position: relative;
+            width: 300px;
+            height: 120px;
+            background-color: #00aeef;
+            margin: 40px auto;
+            
+        }
+
+        .box4 {
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            right: 15px;
+            top: -50px;
+            border: 20px solid transparent;
+            border-bottom: 30px solid #00aeef;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+
+    <span></span>
+
+    <div class="box2"></div>
+
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+</body>
+
+</html>

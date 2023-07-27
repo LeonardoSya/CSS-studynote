@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    结构伪类选择器一般用于选择父级里面的第几个孩子
+    注意nth-child 和 nth-of-type 的相反的挑选顺序的区别
+    nth-child 对父元素里面所有的孩子排序选择(序号固定) 先找到第n个孩子 然后看看是否和E(:前的选择器)是否匹配
+    nth-of-type 对父元素里面指定子元素惊醒排序选择 先去匹配E 然后再根据E找到第n个孩子
+    <style>
+        /* 1.选择ul里的第一个li / 最后一个li / 某一个(一些)li */
+        ul li:first-child {
+            background-color: pink;
+        }
+
+        ul li:last-child {
+            background-color: pink;
+        }
+
+        /* 2. (n)中 这个n可以是数字、关键字(even偶数、odd奇数)、公式 */
+        ul li:nth-child(3) {
+            background-color: green;
+        }
+
+        ul li:nth-child(even) {
+            background-color: #ccc;
+        }
+
+        /* 关于n的公示 比如 n+3 表示从第三个开始选 */
+        ol li:nth-child(n+3) {
+            background-color: #00aeef;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        :first-child、last-child、关于n的公示(eg.n=选择所有的元素、2n=偶数个的元素)
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ol>
+
+    nth-of-type
+
+    <!-- nth-of-type和nth-child区别 -->
+    nth-child的使用规则:  ( div:nth-child(1) )它会把所有的子元素都排列序号 执行的时候首先挑出第一个子元素 然后判断其是不是div 但是其实第一个是p 所以选不出来
+    而nth-of-type: ( div:nth-of-type(1) )它会把指定元素的盒子排列序号 执行的时候先找到div 再挑出div的第一个
+    <section>
+        <p>3</p>
+        <div>1</div>
+        <div>2</div>
+    </section>
+    所以  :nth-child 先排序 再挑:前面的元素
+          :nth-of-type 先挑:前面的元素 再排序
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    transform转换 实现元素的位移、旋转、缩放 可以理解为变形
+
+    1.translate移动 transform: translate(x,y)
+    translate最大优点: 不会影响其他元素位置
+    translate中% 是相对于自身的取值
+    translate对 行内标签 没有效果 (如span 、::before)
+
+    In Out . Back（来回的缓冲效果）：cubic-bezier(0.68, -0.55, 0.27, 1.55)
+
+
+    2.rotate旋转 transform: rotate(xxdeg) deg是度数 正值为顺时针
+    设置转换中心点:  
+    transform-origin: x y;  默认是50% 50%  里面可以跟 像素或方位名词(left\bottom\center...)
+
+
+    3.scale缩放
+    transform: scale(x, y);  x y是宽 高  写数字不跟单位 数字是倍数
+    scale不影响其他盒子且可以设置中心点
+
+
+    如果多个转换同时使用 其格式为:translate() rotate() scale()
+    其顺序会影响转换效果(先旋转会改变坐标轴方向)
+    当我们同时有位移和其他属性时 要将位移放到最前
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bd1 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 移动盒子位置: 定位 外边距 2D转换 */
+            transform: translate(100px, 0);
+        }
+
+        .bd2 {
+            position: relative;
+            margin-top: 100px;
+            height: 500px;
+            width: 500px;
+            background-color: skyblue;
+        }
+
+        .bd3 {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            /* 如何让一个盒子水平垂直居中 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* 用下面这行代码 可以代替水平垂直居中里margin-left 和 margin-top  */
+            transform: translate(-50%, -50%);
+        }
+
+        /* 旋转 */
+        .bd4 {
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            border-radius: 50% 50% 50% 0;
+            transition: all 1.2s;
+        }
+
+        .bd4:hover {
+            transform: rotate(1080deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bd1"></div>
+
+    <div class="bd2">
+        <div class="bd3"></div>
+    </div>
+
+    <div class="bd4"></div>
+</body>
+
+</html>

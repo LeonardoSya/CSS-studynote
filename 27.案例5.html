@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .box {
+            height: 330px;
+            width: 298px;
+            background-color: #fff;
+            /* 让块级盒子水平居中对齐 */
+            margin: 100px auto;
+        }
+        .a1 {
+            text-decoration: none;
+            font: 500 15px 'PingFang SC';
+            color: #18191c;
+        }
+        .a1:hover {
+            color: #00aeec;
+        }
+        .box img {
+            width: 100%;
+            /* 图片宽度和父元素盒子一样宽 */
+        }
+        .review {
+            height: 40px;
+            /* 这个盒子设置了高度，所以不设置padding-top值了，不然会撑开盒子的高度 ，因此考虑用margin*/
+            margin-top: 10px;
+            padding: 0 20px;
+            /* 因为这个段落没有设置width属性, 所有padding不会撑开盒子的宽度 */
+            /* 下面这行代码用于自动换行 */
+            word-wrap: break-word;
+        }
+
+        .appraise {
+            margin-top: 15px;
+            padding: 0 20px;
+            height: 20px;
+        }
+        .appraise a {
+            font-size: 13px;
+            color: #9499a0;
+            text-decoration: none;
+        }
+        .appraise a:hover {
+            color: #00aeec;
+        }
+        .info {
+            color: #9499a0;
+            margin-top: 5px;
+            padding: 0 20px;
+        } 
+        .info span {
+            font-size: 12px;            
+            font-weight: 400;
+        }
+        .info .a2 {
+            color: #9499a0;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .a2:hover {
+            color: #00aeec;
+        }
+        em {
+            font-style: normal;
+            color: #d0d0d0;
+            /* 盒子与盒子之间用margin */
+            margin: 0 3px 0 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="img/横屏背景2(1).jpg" alt="">
+        <p class="review">  <a href="#" class="a1">“治愈神曲《群青》! 无法超越的绝美画面”</a></p>
+        <div class="appraise"><a href="#">up 血小板 · 11.10</a></div>
+        <div class="info">
+            <span>分区</span>
+            <em>|</em>
+            <span><a href="#" class="a2">MAD</a></span>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+body {
+    background-image: url("img/背景.jpeg");
+    font: 16px/27.2px "Microsoft Yahei"
+}
+h1 {
+    font-weight: 800;
+    text-align: center;
+}
+a {
+   text-align: center;
+   font: 800 13px 'Microsoft Yahei';
+}
+.paitou {
+    color: #5a5858;
+    font-size: 12px;
+    text-align: center;
+}
+.weibu {
+    color: #5a5858;
+    font-size: 12px;
+}
+.fans{
+    color: #5a5858;
+    font-size: 12px;
+}
+.dizhi {
+    color: rgb(249, 9, 9);
+    text-decoration: none;
+    font-weight: 300;
+}
+.search {
+    color: #5a5858;
+    width: 160px;
+}
+.btn {
+    font-weight: 400;
+    color: #5a5858;
+}
+.thefirst {
+    color: #ae1f1f;
+}
+.img {
+    text-align: center;
+}
+p {
+    text-indent: 2em;
+}
+.img2fujian {
+    font: 14px/23px 'Microsoft Yahei';
+    color: #5a5858;
+    text-align: center;
+}
+.meiyuan {
+    font-weight: 700;
+}
+.xunshe {
+    font-weight: 700;
+    color:#f05bd9;
+}
+.fangwen {
+    color:#f05bd9;
+    text-decoration: none;
+    font: 16px 'Microsoft Yahei';
+}
+.sannian {
+    font-weight: 700;
+}
+.chengguo {
+    font-weight: 700;
+    color: red;
+}
+.tousu {
+    text-align: right;
+}

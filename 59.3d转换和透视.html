@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    /* 透视perspective 给被观察元素的 父元素加 值越大物体越小 */
+    translatez 越大 离屏幕越近
+    rotatex 指沿着x轴 旋转某个度数
+
+    左手准则: 左手拇指指向x正轴/y负轴/z正轴(朝自己) 手指弯曲方向就是该元素为正数时 旋转方向
+    <style>
+        .hd {
+            /* 透视perspective给被观察元素的 父元素加 单位px 值越大物体越小 */
+            perspective: 400px;
+        }
+
+        .bd {
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: .3s;
+        }
+
+        .bd:hover {
+            /* z轴越大 物体越大 */
+            /* z值为负时 物体变小 */
+            transform: translateZ(50px);
+        }
+
+        .bdd,
+        .bddd {
+            margin: 100px auto;
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+            transition: 1s;
+        }
+
+        .bdd:hover {
+            transform: rotatey(360deg);
+        }
+
+        .bddd:hover {
+            /* rotate3d(x,y,z,**deg)可理解为 空间坐标系 */
+            transform: rotate3d(0, 2, 1, 222deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hd">
+        <div class="bd"></div>
+        <div class="bdd"></div>
+        <div class="bddd"></div>
+    </div>
+</body>
+
+</html>

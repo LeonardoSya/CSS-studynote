@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    CSS3可以通过 box-sizing 来指定盒子模型
+    有两个值 即可指定为content-box、border-box 这样我们计算盒子大小的方式发生了改变
+
+    以前 默认的是box-sizing:content-box 盒子大小为width+padding+border
+    但是现在 我们设置
+    <!-- box-sizing:border-box  盒子大小为width -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* 下面这行代码 可以让padding和margin不再撑开盒子 */
+            box-sizing: border-box;
+        }
+
+        div {
+            width: 200px;
+            padding: 20px;
+            margin: 20px;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+</body>
+
+</html>

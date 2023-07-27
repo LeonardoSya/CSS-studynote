@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 一、属性选择器 */
+
+        /* 1.属性选择器可以根据 元素特定属性 来选择元素 这样就可以不用借助于类或id选择器 */
+        /* 这样写的要求是 必须是input 但同时具有value这个属性 就选择这个元素*/
+        input[value] {
+            color: pink;
+        }
+
+        /* 2.属性选择器还可以选择属性=值的某些元素 */
+        input[type=text] {
+            color: blue;
+        }
+
+        /* 3.属性选择器可以选择属性值开头的某些元素 */
+        /* 具有class属性 选出属性值是icon开头的元素 */
+        div[class^=icon] {
+            color: red;
+        }
+
+        /* 4.同理，属性值结尾的也可以 */
+        section[class$=data] {
+            color: skyblue;
+        }
+
+        /* 5.同理，属性值中包含有某相同字符的一些元素也可以 */
+        span[class*=hh] {
+            color: purple;
+        }
+        </style>
+</head>
+
+<body>
+    <!-- 一、属性选择器 -->
+
+    1. input[value]
+    <input type="text" value="请输入用户名">
+    <input type="text">
+
+    2. input[type=text]
+    <input type="text" name="" id="">
+    <input type="password" name="" id="">
+
+    3. div[class^=icon]
+    <div class="icon1">1</div>
+    <div class="icon2">2</div>
+    <div class="icon3">3</div>
+    <div class="icon4">4</div>
+    <div>5</div>
+
+    4. section[class$=data]
+    <section class="1data">1</section>
+    <section class="2data">2</section>
+    <section class="3data">3</section>
+
+    5. span[class*=hh]
+    <span class="1hh2">1</span>
+    <span class="12hh23">1</span>
+    <span class="15hh24">1</span>
+
+    注意: 类选择器、属性选择器、伪类选择器  权重为10
+</body>
+
+</html>

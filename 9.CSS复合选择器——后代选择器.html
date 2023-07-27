@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 复合选择器由多个基础选择器组合，复合选择器包含：后代选择器、子选择器、并集选择器、伪类选择器。 -->
+
+    <!-- 最重要：后代选择器（又称包含选择器） -->
+
+    !!
+    若我想把ol里面的li选出来，将其颜色改为pink
+    <style>
+        ol li {
+            color: pink;
+        }
+        /* 元素1 元素2 {样式声明}    这个叫做后代选择器（记得加空格！！） */
+        /* 这个元素1元素2就是 标签选择器（eg.ol li) */
+        /* 上述语法表示：选择元素1里面所有元素2（后代元素） */
+
+        
+        ol li a
+        或者
+        ol a {
+            color: red;
+        }
+
+        
+        /* 元素1元素2……也不一定是标签选择器,也可以别的 */
+        .nav li a {
+            color: green;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>我是ol的后代</li>
+        <li>我是ol的后代</li>
+        <li>我是ol的后代</li>
+        <li><a href="#">a</a>li</li>
+        
+    </ol>
+    <ul>
+        <li>我是ul的后代</li>
+        <li>我是ul的后代</li>
+        <li>我是ul的后代</li>
+    </ul>
+    <ul class="nav">
+        <li>不要绿色</li>
+        <li>不要绿色</li>
+        <li>不要绿色</li>
+        <li><a href="#">绿色</a></li>
+        <li><a href="#">绿色</a></li>
+        <li><a href="#">绿色</a></li>
+    </ul>
+
+</body>
+</html>

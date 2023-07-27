@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav li {
+            color: #000;
+        }
+        /* 要求： 把第一个li 改为粉色加粗 */
+        .nav .demo {
+            /* 如果这里选择器用.demo 则会因为.demo权重是10，而.nav li权重是11而不会变色  */
+            color: pink;
+            font-weight: 700;
+            /* font-weight 不要跟单位px */
+        }
+        ul {
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <ul class="nav">
+        <li class="demo">练习5</li>
+        <li>练习5</li>
+        <li>练习5</li>
+        <li>练习5</li>
+    </ul>
+</body>
+
+</html>

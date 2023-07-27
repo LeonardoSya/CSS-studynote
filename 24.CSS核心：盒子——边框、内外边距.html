@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    css盒子包括: 边框border、内边距padding、外边距margin、实际内容content
+
+    1.边框: 边框宽度(粗细)、边框样式、边框颜色
+    border : border-width | border-style | border-color
+    <!-- 常用边框样式 : solid 实线边框 | dashed 虚线边框 | dotted 点线边框 -->
+    <!-- 边框简写 ： 1px solid red 没有先后顺序 -->
+    <!-- 边框分开写法 ： border-top|bottom|left|right:……  若有border，则放在其下面-->
+    <!-- border-collapse:collapse;  表示相邻边框合并 -->
+    边框会影响盒子实际大小, 解决方法: 测量盒子大小时不测量边框、测量时若包含边框, 则减去width、height
+
+
+    2.内边距 : padding-top|bottom|left|right
+    <!-- padding复合属性 : 
+    padding: 5px;                  上下左右都有5px
+    padding: 5px 10px；            上下5，左右10
+    padding: 5px 10px 20px；       上5 左右10 下20
+    padding：5px 10px 20px 30px；  上5 右10 下20 左30 -->
+    padding也会影响盒子实际大小。如果盒子已经有了高度和宽度 此时再指定padding 会撑大盒子 所以要想保持盒子大小不变 要把width height改为减去padding的大小
+    如果遇到每个 盒子内字数不一样多, 最好的方法是给盒子一个padding值, 不设置盒子的width————案例4导航栏
+
+
+    3.外边距 : margin-left|right|top|bottom
+    和 padding 使用方法相似
+    <!-- 外边距可以让块级盒子水平居中, 但需满足条件: 盒子必须指定了宽度、盒子左右外边距设置为auto -->
+    <!-- 写法: margin: 0 auto; -->
+    <!-- 块级元素居中用 margin ， 行内或行内块元素 在其父元素中写text-align: center 即可 -->
+
+
+
+    <!-- margin和padding的选择:  盒子若设置了width height 就用margin ; 哪一个没设置, 哪一个用padding -->
+
+    <style>
+        /* 1.边框 */
+        div {
+            width: 300px;
+            height: 200px;
+            border: 20px dotted pink;
+            border-top: 20px dotted red;
+            /* 根据样式层叠性 分开写法必须在border写法下面  只设定上边框，其余遵从border样式 */
+
+            padding: 20px 30px 40px 50px;
+            margin: 0 auto;
+        }
+
+        /* 表格细线边框 */
+        table {
+            width: 500px;
+            height: 250px;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        table,
+        td,
+        th {
+            border: 2px solid green;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>盒子</div>
+    <table>
+        <thead>
+            <tr>
+                <th>1</th>
+                <th>1</th>
+                <th>1</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

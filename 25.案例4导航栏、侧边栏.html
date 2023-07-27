@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏</title>
+
+    <style>
+        .nav {
+            border-bottom: 1px solid #edeef0;
+            border-top: 3px solid #00aeec;
+            height: 39px;
+            /* 不要给盒子width,用padding挤开 */
+            background-color: #fcfcfc;
+            margin: 0 0 100px 10px;
+            width: 510px;
+        }
+
+        .nav a {
+            color: #4c4c4c;
+            text-decoration: none;
+            font: 13px 'Microsoft Yahei';
+            display: inline-block;
+            line-height: 39px;
+            text-align: center;
+            padding: 0 12px;
+            /* 已经给了height 所有只要给padding设定左右值就行 */
+        }
+
+        .nav a:hover {
+            background-color: #e0e0e0;
+            color: #00aeec;
+        }
+
+        .navv {
+            width: 200px;
+            background-color: rgb(86, 84, 84);
+            margin-left: 10px;
+        }
+
+        .navv a {
+            display: block;
+            color: #e0e0e0;
+            text-decoration: none;
+            font: 13px 'Microsoft Yahei';
+            text-align: left;
+            padding: 10px 0 10px 30px;
+        }
+
+        .navv a:hover {
+            background-color: rgb(255, 94, 0);
+        }
+
+        img {
+            margin-left: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <a href="http://www.bilibili.com/"><img src="img/bilibili.jpg" alt=""></a>
+    <div class="nav">
+        <a href="#">设为首页</a>
+        <a href="#">bilibili客户端</a>
+        <a href="https://space.bilibili.com/286787935?spm_id_from=333.1007.0.0">个人主页</a>
+        <a href="#">我的收藏</a>
+        <a href="#">稿件管理</a>
+        <a href="#">最近投币</a>
+    </div>
+
+    <a href="https://www.taobao.com/"><img src="img/淘宝.jpg" alt=""></a>
+    <div class="navv">
+        <a href="#">手机 电话卡</a>
+        <a href="#">电视 盒子</a>
+        <a href="#">笔记本 平板</a>
+        <a href="#">出行 穿戴</a>
+        <a href="#">智能 路由器</a>
+        <a href="#">健康 儿童</a>
+        <a href="#">耳机 音响</a>
+    </div>
+</body>
+
+</html>

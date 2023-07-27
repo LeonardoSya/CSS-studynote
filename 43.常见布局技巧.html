@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    四个常见布局技巧
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?yt9gm5');
+            src: url('fonts/icomoon.eot?yt9gm5#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?yt9gm5') format('truetype'),
+                url('fonts/icomoon.woff?yt9gm5') format('woff'),
+                url('fonts/icomoon.svg?yt9gm5#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        /* 1.margin负值的运用 */
+
+
+        ul li {
+            float: left;
+            list-style: none;
+            width: 100px;
+            height: 150px;
+            border: 5px solid #000;
+            background-color: #00aeef;
+            transition: 0.2s;
+        }
+
+        /* 用margin负值清除重合的中框 */
+        li {
+            margin-left: -5px;
+        }
+
+        /* 鼠标经过某盒子的时候，提高当前盒子的层级即可(若没有定位则加relative 如果有定位则加z-index) */
+        /* 因为 相对定位会压住 标准流和浮动  */
+        ul li:hover {
+            position: relative;
+            /*如果盒子本身已经带relative 则
+             z-index: 1; */
+            border: 5px solid orange;
+        }
+
+
+        /* 2.文字围绕浮动元素 */
+
+        /* 因为浮动不会压住文字 */
+        .box1 {
+            margin: 0 auto;
+            padding: 5px;
+            background-color: rgba(0, 174, 239, .3);
+            width: 300px;
+            height: 60px;
+        }
+
+        .box1 .pic {
+            float: left;
+            width: 120px;
+            height: 60px;
+            background: rgba(0, 0, 0, .3);
+            margin-right: 5px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+
+        /* 3.行内块巧妙运用 */
+        /* 行内块元素可直接text-align: center */
+        .box2 {
+            text-align: center;
+        }
+
+        /* a是本身行内元素 */
+        .box2 a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: #f7f7f7;
+            text-decoration: none;
+            text-align: center;
+            line-height: 36px;
+            color: #333;
+            font-family: 'icomoon';
+            font-size: 20px;
+            transition: 0.2s;
+            vertical-align: middle;
+        }
+
+        .box2 a:hover,
+        .box2 input:hover {
+            background-color: #c2c1c1;
+        }
+
+        .box2 a:active,
+        .box2 input:active {
+            background-color: #fff;
+        }
+
+        a .span1 {
+            margin-left: -5px;
+        }
+
+        a .span2 {
+            margin-right: -2px;
+        }
+
+        .box2 input {
+            margin: 0 3px;
+            width: 45px;
+            height: 36px;
+            border: none;
+            background-color: #f7f7f7;
+            outline: none;
+            vertical-align: top;
+            transition: 0.2s;
+        }
+
+        button {
+            margin: 0 3px;
+            width: 35px;
+            height: 25px;
+            background-color: #f7f7f7;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+
+
+        /* 4.CSS三角巧妙运用 */
+        .triangle {
+            position: relative;
+            width: 160px;
+            height: 40px;
+            border: 1px solid transparent;
+            margin: 40px auto;
+            line-height: 40px;
+            text-align: center;
+            font-size: 26px;
+            font-family: 'icomoon';
+        }
+
+        .left {
+            z-index: 1;
+            position: relative;
+            float: left;
+            padding-right: 16px;
+            width: 90px;
+            background: #154599;
+            color: #e5cab9;
+        }
+
+        .left i {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 0;
+            width: 0;
+            border-color: transparent #000 transparent transparent;
+            border-style: solid;
+            border-width: 40px 24px 0 0;
+        }
+
+        .right {
+            z-index: 1;
+            position: absolute;
+            right: 20px;
+            top: -1px;
+            color: #154599;
+        }
+
+        .pic1 {
+            z-index: 0;
+            position: absolute;
+            right: 0;
+            width: 60%;
+            height: 40px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    4.CSS三角巧妙运用
+
+    <div class="triangle">
+        <span class="left">
+            <i></i>
+        </span>
+        <span class="right"></span>
+        <img class="pic1" src="img/纯黑.jpg" alt="">
+    </div>
+
+    <div class="triangle">
+        <span class="left">
+            <i></i>
+        </span>
+        <span class="right"></span>
+        <img class="pic1" src="img/纯黑.jpg" alt="">
+    </div>
+
+
+
+    3.行内块巧妙运用
+    <div class="box2">
+        <a href="#"><span class="span1"></span></a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#"><span class="span2"></span></a>
+        跳转到<input type="text" name="" id="">页
+        <button>确定</button>
+    </div>
+
+
+    2.文字围绕浮动元素
+    <div class="box1">
+        <div class="pic">
+            <img src="img/横屏背景1.jpg" alt="">
+        </div>
+        <p style="word-wrap: break-word;">11111111111111111111111111111</p>
+    </div>
+
+    1.margin负值的运用
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>

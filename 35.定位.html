@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    为什么需要定位？
+    某个元素可以自由的在一个盒子内移动位置 并且压住其他盒子
+    当我们在滚动页面的时候 盒子固定在屏幕某个位置
+
+    所以: 浮动可以让多个块级盒子在一行内没有缝隙排列显示 经常用于横向排列盒子
+    定位则是可以让盒子自由的在某个盒子内移动位置或者固定屏幕中某个位置 并且可以压住其他盒子
+
+
+    定位的组成:
+    定位 = 定位模式 + 边偏移
+    <!-- 定位模式:   position: static(静态定位) | relative(相对) | absolute(绝对) | fixed(固定) -->
+    <!-- 边偏移: top | bottom | left | right -->
+
+
+    static 静态定位(少用) 就是标准流
+
+    1.
+    <!-- relative: 相对于自身原来的位置移动  不脱标 继续保留原来位置 -->
+    因此 relative 最典型的应用是限制绝对定位
+
+
+    2. absolute: 相对于父元素移动
+    <!-- 如果没有父元素 或父元素没有定位(父元素为标准流或浮动) 则以浏览器为准定位 -->
+    <!-- 如果父元素有定位(relative absolute fixed) 则以最近一级的、有定位的祖先元素为参考点移动 -->
+    <!-- 绝对定位不再占有原来的位置(脱标) -->
+
+    3. 子绝父相:
+    <!-- 子绝父相: 因为父级需要占有位置 因此是相对定位 子盒子不需要占有位置 则是绝对定位 -->
+
+
+    4.
+    <!-- fixed 固定定位： 以浏览器的可视窗口作为参照点移动 与父元素没有任何关系 不随滚动条滚动 不占有原先位置 -->
+
+    5.
+    <!-- 如何固定在版心右侧？ -->
+    1.固定定位的盒子left:50% (到浏览器可视区的一半的位置/版心一半的位置)
+    2.固定定位的盒子margin-left:版心宽度的一半 (多移动版心宽度的一半位置)
+
+
+    6. sticky粘性定位 :
+    1.以浏览器可视窗口为参照点移动(固定定位特点)
+    2.粘性定位占有原先定位特点(相对定位特点)
+    3.必须添加top\left\right\bottom其中一个才有效
+
+
+    7.定位叠放次序 z-index
+    <!-- 语法: z-index:1; -->
+    数值是整数 默认auto 数值越大 盒子越靠上 如果属性值相同则后来者居上
+    只有定位的盒子才能加z-index
+
+
+
+    8.
+    <!-- 绝对定位盒子居中算法 -->
+    加了绝对定位的盒子不能通过margin:0 auto水平居中
+
+    1.left走50%(父容器宽度的一半)
+    2.margin负值往左边走自己盒子宽度的一半
+
+    同理, 垂直居中
+    1.top走50%
+    2.margin-top: 向上走自己盒子高度的一半
+
+
+    9.
+    <!-- 定位的特殊性 -->
+    行内元素(span…)添加relative/absolute 可以直接设置高度和宽度
+    块级元素(div…)添加relative/absolute 如果不给宽度或高度 默认大小是内容的大小
+    float、absolute、relative都不会触发外边距合并的问题
+
+
+    <!-- ! -->
+    10.float元素只会压住下面标准流的盒子 但不会压住下面标准流的文字/图片 (因为float最初设计的目的就是实现文字环绕效果)
+    11.而absolute/relative会压住下面标准流所有的内容
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 120px;
+            left: 30px;
+            z-index: -1;
+        }
+
+        .father {
+            background-color: rgba(0, 0, 0, .6);
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        .box2 {
+            position: absolute;
+            background-color: purple;
+            width: 200px;
+            height: 200px;
+        }
+
+        .fix {
+            width: 50px;
+            height: 50px;
+            background-color: hotpink;
+            position: fixed;
+            top: 100px;
+            right: 30px;
+        }
+
+        .w {
+            width: 600px;
+            height: 1000px;
+            margin: 0 auto;
+            background-color: #00aeefb4;
+        }
+
+        .fix2 {
+            background-color: #000;
+            width: 20px;
+            height: 30px;
+            position: fixed;
+            left: 50%;
+            margin-left: 304px;
+            margin-top: -200px;
+        }
+
+        .粘性定位 {
+            margin-top: 20px;
+            width: 100px;
+            height: 20px;
+            background-color: rgb(119, 83, 150);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .box3 {
+            width: 100px;
+            height: 200px;
+            background-color: rgb(47, 184, 61);
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            top: 50%;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="box1"></div>
+    </div>
+    <div class="box2"></div>
+
+    <div class="fix"></div>
+    <div class="粘性定位">粘性定位</div>
+
+    <div class="box3">绝对定位盒子居中</div>
+
+    <!-- 贴着版心边上的fixed标签必须写在版心前面 -->
+    <div class="fix2"></div>
+    <div class="w"></div>
+</body>
+
+</html>

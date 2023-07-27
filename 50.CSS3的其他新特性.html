@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    1.图片变模糊
+    2.计算盒子宽度width: calc函数
+
+
+    <!-- 1.CSS3滤镜 filter: -->
+    filter属性将模糊或颜色偏移等图形效果应用于元素
+    语法:
+    filter: 函数();
+    例如: filter: blur(5px); blur模糊处理 数值越大越模糊
+
+
+    2.CSS3 calc函数 可以让你在声明CSS属性值时执行一些计算
+    语法:
+    width:calc(100%-80%) 括号里可以用 + - * / 进行计算 符号前后都要加空格
+    <style>
+        img {
+            filter: blur(5px);
+            width: 500px;
+        }
+
+        img:hover {
+            filter: blur(0);
+        }
+
+        /* <!-- 需求：子盒子宽度永远比父盒子小30px --> */
+        .father {
+            width: 500px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .son {
+            /* 下面这个公式的意思是 子盒子宽度永远比父盒子(100%)小30px */
+            width: calc(100% - 30px);
+            height: 30px;
+            background-color: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="img/横屏背景2.jpg" alt="">
+
+    <!-- 需求：子盒子宽度永远比父盒子小30 -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

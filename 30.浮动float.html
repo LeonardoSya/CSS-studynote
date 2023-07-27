@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    传统网页布局的三种方式: 标准流、浮动、定位
+    实际开发中, 一个页面基本都包含这三种布局方式
+
+    标准流(最基本): 标签按照规定好的默认方式排列 块级元素独占一行从上到下 行内元素从左到右 碰到父元素边缘自动换行
+
+    浮动可以改变元素默认排列方式
+    <!-- 网页布局第一准则: -->
+    <!-- 多个块级元素纵向排列找标准流  多个块级元素横向排列找浮动 -->
+    浮动语法:
+    选择器 { float: 属性值；}
+    属性值: none (默认值) | left | right
+
+
+
+    <!-- 浮动特性！！！ -->重难点
+    1.浮动元素会脱离标准流(脱标)
+    2.浮动的元素会一行内显示 且元素顶部对齐
+    3.浮动的元素会具有行内块元素的特性
+
+    1.脱标: 脱离标准流的控制(浮) 移动到指定位置(动) 浮动的盒子不再保留原先的位置, 这个位置让其他标准流盒子占有
+    2.如果行内元素有了浮动 则不需要转换块或行内块就可以直接给高度和宽度
+    3.如果块级盒子没有设置宽度, 默认宽度和父级一样宽 但在添加浮动后, 其大小根据内容决定——参考下面<p></p>
+
+
+    <!-- 网页布局第二准则 -->
+    <!-- 先设盒子大小 再设盒子位置 -->
+
+    只要是通栏的盒子(和浏览器一样宽), 就不需要指定宽度
+
+
+    实际布局中:
+    <!-- 先用标准流的父元素排列上下位置, 之后用内部子元素排列左右位置 -->
+    <!-- 盒子内有多个子盒子时，一个子盒子浮动了，那么其余兄弟元素也应该浮动 -->
+
+
+
+
+
+
+
+
+
+
+    <style>
+        div {
+            background-color: rgba(0, 174, 236, .3);
+            width: 200px;
+            height: 200px;
+            border-radius: 30%;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .biaozhun {
+            width: 400px;
+            background-color: black;
+        }
+
+        /* 2.如果行内元素有了浮动 则不需要转换块或行内块就可以直接给高度和宽度 */
+        span {
+            width: 300px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(0, 174, 236, .3);
+            float: left;
+        }
+
+        p {
+            background-color: rgba(0, 174, 236, .3);
+            float: left;
+            height: 300px;
+        }
+
+
+
+        /* 为什么清除浮动 */
+        .box {
+            width: 800px;
+            border: 1px solid rgba(0, 174, 236, .3);
+            background-color: red;
+            margin: 300px auto;
+            border-radius: 0;
+        }
+
+        .damao {
+            float: left;
+            width: 300px;
+            height: 200px;
+        }
+
+        .ermao {
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* 如果父元素不加高度且是标准流，子元素是浮动，则因为浮动，所以不能撑开父元素的高 父元素高会变成0 */
+    </style>
+</head>
+
+<body>
+    <div class="left">浮动</div>
+    <div class="right">浮动</div>
+    <div class="biaozhun">标准流</div>
+
+    <span class="span1">行内元素span</span>
+    <span class="span2">行内元素span</span>
+    <p>行内元素p</p>
+
+    <div class="box">
+        <div class="damao"></div>
+        <div class="ermao"></div>
+    </div>
+</body>
+
+</html>

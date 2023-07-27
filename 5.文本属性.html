@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<!-- 文本属性可定义文本的外观 如文本颜色、对齐文本、装饰文本、文本缩进、行间距等 -->
+<style>
+    /* 三种文本颜色表达 预定义、16进制（常用）、rgb*/
+    .blue {
+        color: #66ccff;
+    }
+    .red {
+        color: rgb(255,0,0)
+    }
+
+/* 对齐文本  text-align用于文本内容的水平对齐方式 */
+/* left\right\center */
+   .duiqi {
+        text-align: center;
+        /* 居中本质是在盒子里居中，比如span是在它的盒子里居中 */
+    }
+
+    /* 装饰文本 text-decoration*/
+    /* none、underline、line-through(删除线)  */
+    .xian {
+        text-decoration: underline;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+
+    /* 文本缩进 text-indent 单位：em或px*/
+    /* em是一个相对单位，就是当前元素(font-size)1个文字的大小，如果当前元素未设置font-size则会按照父元素的1个文字大小 */
+    p {
+        text-indent: 2em;
+    }
+
+
+    /* 行间距 line-height 行间距由上间距、下间距、文本高度组成 */
+    div {
+        line-height: 26px;
+    }
+</style>
+</head>
+<body>
+    <p class="red">不要在十歌彩排时敲代码</p>
+    <p class="blue">不要在十歌彩排时敲代码</p>
+    <p class="duiqi">不要在十歌彩排时敲代码</p>
+    <p class="xian">不要在十歌彩排时敲代码</p>
+    <a href="5.附件.html">敲代码</a>
+
+    <P>不要在十歌彩排时敲代码</P>
+    <P>不要在十歌彩排时敲代码</P>
+    <P>不要在十歌彩排时敲代码</P>hy
+
+    <div>键盘敲烂，月薪过万</div>
+</body>
+</html>

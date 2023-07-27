@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    制作动画两步: 定义动画 调用动画
+
+    动画属性
+    animation 所有动画简写属性 除了animation-play-state
+    animation-name 名称 (必须)
+    -duration 完成一个周期 的s/ms (必须)
+    -timing-function 速度曲线 默认ease linear/ease-in(低速开始)/ease-in-out(低速开始和结束)/steps()(间隔步长 一步一步走)
+    -delay 前摇 0s(默认)
+    -iteration-count 播放次数 infinite(无限)
+    -direction 下一周期 逆向播放 normal/alternate(逆)
+    -play-state 是否正在运行或暂停 running(默认)/pause
+    -fill-mode 结束后状态 forwards(保持)/backwards(回到起始)
+    <style>
+        /* 定义动画 keyframes关键帧*/
+        @keyframes name {
+
+            /* 动画序列 */
+            /* 百分比必须为整数 */
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: rotate(1260deg) rotate(-300deg);
+            }
+
+            60% {
+                transform: translate(300px, 200px) rotate(300deg) scale(0.5);
+            }
+
+            85% {
+                transform: translate(400px) rotate(-380deg) scale(1.5);
+            }
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background: url(img/zz.jpg) no-repeat -484px -627px;
+            /* 使用动画 */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: name 2s ease 0s infinite alternate forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

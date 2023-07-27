@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- display属性 -->
+    display: none 隐藏对象
+    display隐藏元素后,
+    <!-- 不再占有原来的位置 -->
+    display: block 转化为块级元素 + 显示元素
+
+    后面与js搭配非常常用!
+
+
+    <!-- visibility属性 -->
+    visibility属性用于指定一个元素是可见还是隐藏
+    visibility: visible 元素可视
+    visibility: hidden 元素隐藏
+    visibility隐藏元素后,
+    <!-- 继续占有原来位置 -->
+
+
+    <!-- overflow溢出显示隐藏 -->
+    overflow: visible 默认 溢出显示
+    overflow: hidden 溢出隐藏
+    overflow: scroll 显示滚动条
+    overflow: auto 在需要的时候添加滚动条
+    如果有定位的盒子 请慎用overflow: hidden 因为它会隐藏多余的部分
+
+
+    <style>
+        .video {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: #00aeef;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4) url(img/圆形头像.png) no-repeat center;
+        }
+
+        .video:hover .mask {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="video">
+        <div class="mask"></div>
+        <img src="" alt="">
+    </div>
+</body>
+
+</html>

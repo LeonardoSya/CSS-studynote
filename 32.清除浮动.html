@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    为什么清除浮动？
+    由于父盒子在很多情况下不方便给高度 但是子盒子浮动又不占有位置 最后父盒子高度为0时 就会影响下面的标准流盒子
+    <!-- 浮动元素不在占用标准流的位置 所以它会对后面的元素排版产生影响 -->
+    清除浮动的三个原因:
+    1.父级没高度
+    2.子盒子浮动了
+    3.影响下面布局了 我们就应该清除浮动·1
+
+    清除浮动的本质: 清除浮动元素造成的影响
+    清除浮动后 父级就会根据浮动的子盒子自动检测高度 父级有了高度 就不会影响下面的标准流了
+    语法:
+    <!-- 选择器 {clear: both} -->
+
+    清除浮动的策略: 闭合浮动 只让浮动在盒子内部影响 不影响父盒子外面的其他盒子
+
+
+    清除浮动的方法:
+    1.额外标签法(隔墙法)
+    2.父级添加overflow
+    3.父级添加after伪元素(相当于额外标签法的升级 也是给父元素添加)
+    4.父级添加双伪元素
+    (四种都会用到！)
+
+
+    <style>
+        /* 3.父级添加after伪元素 */
+        /* .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .clearfix { */
+        /* IE6、7 专有 */
+        /* *zoom: 1;
+        } */
+        /* 记得在下面父元素class后添加clearfix */
+
+
+        /* 4.父级添加双伪元素 */
+        .clearfix:before,
+        .clearfix:after {
+            content: '';
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+        /* 记得在下面父元素class后添加classfix */
+
+
+        .box {
+            width: 500px;
+            background-color: pink;
+            /* 2.父级添加overflow */
+            /* overflow: hidden; */
+        }
+
+        .damao {
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .ermao {
+            float: left;
+            width: 300px;
+            height: 150px;
+            background-color: orange;
+        }
+
+        .footer {
+            width: 400px;
+            height: 200px;
+            background-color: rgba(0, 174, 236, .3);
+        }
+
+        /* 1.额外标签法(隔墙法) */
+        /* .geqiangfa {
+            clear: both;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box clearfix">
+        <div class="damao"></div>
+        <div class="ermao"></div>
+        <!-- 1.额外标签法(隔墙法) -->
+        <!-- <div class="geqiangfa">隔墙法</div> -->
+        <!-- 隔墙法添加的新标签必须是块级元素 -->
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>

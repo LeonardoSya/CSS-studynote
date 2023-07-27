@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    1.圆角边框
+    <!-- 语法：border-radius: length; -->
+    <!-- 参数值可以为 ： 数值或百分比 -->
+    正方形--圆: radius设置为高度的一半
+    长方形--胶囊型: radius设置为width和height较短的一个值的一半
+
+
+    2.盒子阴影
+    <!-- 语法:  box-shadow: h-shadow v-shadow blur spread color inset; -->
+    值:
+    h-shadow: 必需 水平阴影的位置(阴影向左右移动) 允许负值
+    v-shadow: 必需 垂直阴影的位置(阴影向上下移动) 允许负值
+    blur: 可选 模糊距离(虚实效果)
+    spread: 可选 阴影的尺寸(大小)
+    color: 可选 阴影的颜色
+    inset: 可选 将外部阴影outset改为内部阴影
+
+    <!-- 可以设置鼠标经过时添加阴影 -->
+
+
+    3.文字阴影
+    <!-- 语法: text-shadow: h-shadow v-shadow blur color -->
+    h-shadow: 必须 水平阴影位置 允许负值
+    v-shadow: 必须 垂直阴影位置 允许负值
+    blur:     可选 模糊的距离
+    color:    可选 阴影的颜色
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav {
+            border-radius: 35px;
+            width: 400px;
+            height: 70px;
+            background-color: rgba(0, 172, 235);
+            line-height: 70px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 设置鼠标经过时添加阴影 */
+        .nav:hover {
+            transition-property: all;
+            transition-duration: 0.3s;
+            transition-timing-function: ease-out;
+            box-shadow: 8px 10px 10px -4px rgba(0, 0, 0, .3);
+        }
+
+        .yuan {
+            border-radius: 100%;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 172, 235, .5);
+            line-height: 300px;
+            margin: 0 auto;
+            text-align: center;
+            text-shadow: 3px 3px 3px rgba(0,0,0,.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">胶囊</div>
+    <div class="yuan">圆</div>
+</body>
+
+</html>

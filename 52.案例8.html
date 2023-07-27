@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条案例</title>
+    <style>
+        .bar {
+            width: 150px;
+            height: 15px;
+            border-radius: 7px;
+            background-color: #000;
+            border: 1px solid #000;
+            padding: 2px;
+        }
+
+        .bar_in {
+            width: 50%;
+            height: 100%;
+            background-color: red;
+            /* 谁做过渡给谁加 因为变化的是bar_in的width 所以给bar_in 加 */
+            transition: width .5s;
+        }
+
+        /* 这行选择器的意思是经过bar 父盒子bar里面的子盒子bar_in宽度变化 */
+        .bar:hover .bar_in {
+            width: 80%;
+        }
+
+
+
+        /* logo切换 */
+        .logo {
+            height: 180px;
+            width: 180px;
+            margin: 200px auto;
+            border: 1px solid red;
+            border-radius: 20%;
+            background: red url(img/安卓ios切换.png) no-repeat 27px 6px;
+            /* overflow: hidden; */
+            transition: all .5s;
+        }
+
+        .logo:hover {
+            background: red url(img/安卓ios切换.png) no-repeat -170px 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <div class="bar_in"></div>
+    </div>
+
+    <div class="logo">
+
+    </div>
+</body>
+
+</html>

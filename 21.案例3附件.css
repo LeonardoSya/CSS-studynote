@@ -1,0 +1,26 @@
+.nav a {
+    display: inline-block;
+    width: 358px;
+    height: 1120px;
+    line-height: 1120px;
+    background-color: pink;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav .bj1 {
+    background: url(img/竖屏背景1.jpg) no-repeat;
+}
+
+.nav .bj2 {
+    background: url(img/竖屏背景2.jpg) no-repeat;
+}
+
+.nav .bj1:hover {
+    background: url(img/竖屏背景2.jpg) no-repeat;
+}
+
+.nav .bj2:hover {
+    background: url(img/横屏背景1.jpg) no-repeat;
+}

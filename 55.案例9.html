@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            background-color: rgb(71, 146, 220);
+            width: 50px;
+            height: 50px;
+            margin: 50px auto;
+            border-radius: 10px;
+            /* overflow: hidden; */
+        }
+
+        .box1::before,
+        .box1::after {
+            /* 伪元素是行内元素 没有大小 必须转化为块元素 */
+            display: block;
+            content: '哒哒哒';
+            font-size: 12px;
+            text-align: center;
+            line-height: 50px;
+            color: rgb(214, 214, 214);
+            border-radius: 10px;
+            width: 100%;
+            transform-origin: left bottom;
+            height: 100%;
+        }
+
+        .box1::after {
+            margin-top: -50px;
+            background-color: rgb(168, 71, 220);
+            transform: rotate(135deg);
+            transition: all .2s;
+        }
+
+        .box1::before {
+            background-color: rgb(53, 166, 125);
+            transform: rotate(-135deg);
+            transition: all .5s .1s;
+        }
+
+        .box1:hover::after {
+            transform: rotate(0) scale(.7, .7);
+        }
+
+        .box1:hover::before {
+            transform: rotate(-360deg) scale(1.5, 1.5);
+        }
+
+        .box2 {
+            margin: 160px auto;
+            background-color: #00aeefb4;
+            width: 300px;
+            height: 60px;
+        }
+
+        .box2 ul li {
+            float: left;
+            list-style: none;
+            margin: 14px 6px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: rgb(73, 73, 73);
+            color: #fff;
+            border-radius: 50%;
+            transition: all .1s;
+            cursor: pointer;
+        }
+
+        .box2 ul li:hover {
+            /* transform: scale(1.3); */
+            margin-top: 9px;
+            margin-left: 1px;
+            width: 40px;
+            height: 40px;   
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+
+</html>

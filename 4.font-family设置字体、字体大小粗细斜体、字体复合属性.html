@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 16px;
+            font-weight: 700;
+            /* 这个700后面不要加单位，等价于bold 都是加粗的效果 */
+            /* 实际开发中,提倡使用数字 */
+        }
+
+        h2 {
+            font-family: '微软雅黑';
+            font-size: 30px;
+            font-weight: 400;
+            /* 400等价于normal 让标题不变粗  */
+            font-style: normal;italic
+            /* italic倾斜（较少用），一般用normal把<em>变正 */
+        }
+        p {
+            font-family: 'Microsoft Yahei',Arial,Helvetica;
+        }
+        /* 设置多个字体的意思是，如果用户电脑未安装第一种字体，就执行下一种字体&兼容性更好 */
+        /* 各个字体之间用英文逗号隔开 */
+        /* 常见的几种字体 ：body{font-family:'Microsoft Yahei',tahomo,arial,'Hiragino Sans GB';} */
+        /* 通常字体指定给body标签 */
+
+        .a {
+            color: pink;
+        }
+        .b {
+            color: red;
+        }
+        .c {
+            color: blue;
+        }
+        .d {
+            color: green;
+        }
+        .e {
+            color: orange;
+        }
+
+        
+
+        /* 复合属性 简写的方式 节约代码 */
+        /* 想要div文字变倾斜 加粗 字号18像素 微软雅黑 */
+        /* font: font-style font-weight font-size/line-height font-family  */
+        div {
+          font: italic 700 16px 'Microsoft Yahei';
+          /* 必须严格按照这个顺序写 */
+          /* 除了 size 和 family 属性 其他都可以省略 */
+          color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!-- 标题标签比较特殊，需要单独指定文字大小 -->
+    <h2>敲代码</h2>
+    <p class="a">别在十歌彩排现场敲代码</p>
+    <p class="b">别在十歌彩排现场敲代码</p>
+    <p class="c">别在十歌彩排现场敲代码</p>
+    <p class="d">别在十歌彩排现场敲代码</p>
+    <p class="e">别在十歌彩排现场敲代码</p>
+
+    <div>别卷</div>
+    
+</body>
+</html>

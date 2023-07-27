@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    1.
+    <!-- vertical-align: -->
+    用于设置图片或表单(行内块元素) 和 文字 垂直对齐 只针对于行内元素和行内块元素(块级元素无法实现) 比如div、p、h1、ul、li、ol这些不行
+
+    <!-- 语法:  -->
+    vertical-align: baseline(默认 元素在父元素基线上) | top(元素顶端与行中最高元素顶端对齐) | middle(元素放置在父元素中部) | bottom(元素顶端与行中最低元素顶端对齐)
+    从高到低: 顶线、中线、基线、底线 top middle baseline bottom
+
+    一般给img加vertical-align
+
+
+    2.
+    <!-- 图片底侧空白缝隙解决方案: -->
+
+    bug原因: 行内块元素会和文字基线对齐
+    方法: 给img添加vertical-align: middle|top|bottom (提倡使用)  或把img转化为块级元素 display: block
+
+
+    <style>
+        .box {
+            display: inline-block;
+            border-radius: 25px;
+            background: #00aeef;
+        }
+
+        .img {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 25px;
+            vertical-align: middle;
+        }
+
+        span {
+            margin-right: 25px;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .img,
+        span {
+            padding: 5px 2px;
+        }
+
+        textarea {
+            margin-top: 20px;
+            vertical-align: middle;
+        }
+
+        .box2 {
+            border: 1px solid red;
+        }
+
+        .box2 img {
+            width: 220px;
+            vertical-align: middle;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="img"><img src="img\圆形头像.png" alt=""></div>
+        <span>头像</span>
+
+    </div>
+
+    <textarea name="" id="" cols="30" rows="10"></textarea>请留言
+
+
+    <div class="box2"><img src="img/方形背景1.jpg" alt=""></div>
+</body>
+
+</html>

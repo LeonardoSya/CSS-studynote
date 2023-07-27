@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- 背景颜色 -->
+    一般情况下背景颜色默认值是transparent(透明)
+
+    <!-- 背景图片 -->
+    background-image: url(url)|none 常用于logo、装饰性小图片、超大的背景图片。优点是便于控制位置
+
+    <!-- 背景平铺 -->
+    background-repeat: repeat | no-repeat | repeat-x | repeat-y (一定要小写)
+    平铺 | 不平铺 | 沿x轴平铺(横着铺) | 沿y轴平铺(竖着铺)
+    (默认情况下，图片平铺)
+
+    页面元素既可以添加背景图片，也可以添加背景颜色
+
+    <!-- 背景图片位置 -->
+    background-position: x y;    (x坐标和y坐标,可以使用方位名词或精确单位)
+    参数值： length(百分数)  position(top | center | bottom | left | right  方位名词)
+
+    注意: 1.如果指定的两个值都是方位名词, 则两个值前后顺叙无关, 如left top = top left 效果一致(原因: 水平有左右 而垂直没有左右)
+          2.如果只指定了一个方位名词, 另一个值省略, 则第二个值默认居中对齐
+          3.如果只指定一个数值, 那该数值一定是x坐标, 另一个默认垂直居中
+          4.如果指定的两个值是精确单位和方向名词混用, 则第一个值是x坐标, 第二个值是y坐标。可以background-position: center 20px
+
+
+    
+    <!-- 背景图像固定 -->
+    background-attachment属性设置背景图像是否固定或随着页面的其余部分滚动
+    background-attachment后期可制作视差滚动效果!! 
+    background-attachment: scroll | fixed
+    scroll(背景图像随对象内容滚动)
+    fixed(背景图像固定)
+
+
+
+    <!-- 背景复合写法 -->
+    background: 背景颜色 背景图片地址 背景平铺 背景图像滚动 背景图片位置;
+    background: transparent url(image.jpg) repeat-y fixed top;
+
+    <!-- 背景颜色半透明 -->
+    background: rgba(0,0,0,0.3)   最后一个参数是alpha值, 取值范围在0-1
+    在实际开发中, 习惯把0.3的0省略，rgba(0,0,0,.3)
+
+
+
+
+
+    <style>
+        body {   
+            width: 3000px;
+            height: 3000px;
+            background-color: rgb(157, 101, 192);
+            background-image: url(img/横屏背景2.jpg);
+            background-repeat: no-repeat;
+            background-position: top center;
+            /* background-position: 20px 30px;   精确单位有固定顺序 */
+            /* background-position: 20px center; */
+            background-attachment: fixed;
+
+        }
+        .lizi {
+            width: 300px;
+            height: 300px;
+            background: rgba(0,0,0,0.7);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div class="lizi"></div>
+</body>
+
+</html>

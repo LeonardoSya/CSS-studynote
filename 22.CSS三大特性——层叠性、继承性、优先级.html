@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 层叠性: ，在选择器相同的情况下，解决样式冲突的问题, 一个样式会覆盖另一个冲突的样式。遵循就近原则，哪个样式离结构近，采用哪个。不冲突的样式不覆盖 -->
+
+    <!-- 继承性: 子标签会继承父标签的某些样式, text- font- line-  color 可以继承 (table不可以)-->
+
+
+    <!-- 优先级: 如果选择器相同，执行层叠性；选择器不同，根据选择器权重执行 -->
+    <!-- 继承的权重是0,如果该元素没有被直接选中, 不管父元素权重多高, 子元素得到的权重都是0 -->
+    选择器权重：
+    继承或*(通配符选择器): 0,0,0,0
+    元素选择器(标签选择器 p div…) : 0,0,0,1
+    类选择器(. class)，伪类选择器(a:link…): 0,0,1,0
+    ID选择器(#): 0,1,0,0
+    行内样式style : 1,0,0,0
+    !important 重要的: 无穷大
+    <!-- important>行内style>id>class>元素>*>浏览器默认>继承  -->
+    <!-- a链接 浏览器默认指定样式, 如果不单独直接选中, 那么不会执行父元素样式 -->
+
+
+    <!-- 权重的叠加 : 复合选择器有权重叠加的特性， 指定越明确（选择器选择的范围越小）权重越高 -->
+
+
+    <style>
+        body {
+            color: red;
+            font: 12px/1.5 'Microsoft Yahei';
+            /* body行高写成不带单位的 (如1.5)，这样写法最大的优势是里面的子元素可以根据自己文字大小自动调整行高 */
+        }
+
+        div {
+            /* 子元素继承了父元素 body 的行高 1.5 */
+            /* 这个1.5就是当前元素文字大小的1.5倍 */
+            font-size: 14px;
+            /* 即当前div的行高为1.5*14=21px */
+        }
+
+        p {
+            font-size: 16px;
+            /* p行高为1.5*16=24px */
+        }
+
+
+        /* 优先级 */
+        span {
+            font-size: 19px;
+            color: #000 !important;
+        }
+
+        .test {
+            color: red;
+        }
+
+        #demo {
+            color: pink;
+        }
+
+        /* 优先级: 继承的权重是0 */
+        #father {
+            color: red;
+        }
+
+        li {
+            color: pink;
+        }
+
+        /* 权重的叠加 */
+        li {
+            color: pink;
+        }
+
+        ol li {
+            color: blue;
+        }
+
+        /* ol li 权重为 0,0,0,1 + 0,0,0,1 = 0,0,0,2 */
+        .nav li {
+            color: red;
+        }
+
+        /* .nav li 权重为 0,0,1,0 + 0,0,0,1 = 0,0,1,1 */
+        /* 指定越明确(选择器指定的范围越小), 权重越大 */
+        /* 权重会叠加，但不会进位 */
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- 继承性： -->
+    <div>div继承性</div>
+    <p>p继承性</p>
+
+
+    <!-- 优先级 -->
+    <span class="test" id="demo" style="color: purple;">优先级</span>
+
+    <!-- 优先级: 继承的权重是0 -->
+    <ul id="father">
+        <li>继承的权重是0</li>
+        虽然ul的权重很高, 但是li继承的权重是0
+        所以以后我们看标签到底执行哪个样式, 就先看这个标签有没有被直接选出来
+    </ul>
+
+    <!-- 权重的叠加  -->
+    <ol class="nav">
+        <li>权重的叠加</li>
+    </ol>
+
+</body>
+
+</html>
